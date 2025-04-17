@@ -1,29 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: frontend
   template:
     metadata:
       labels:
-        app: backend
+        app: frontend
     spec:
       containers:
-        - name: backend  # Fixed indentation
-          image: ashreesee/backend:v1
+        - name: frontend  # Fixed indentation
+          image: ashreesee/frontend:v1
           ports:
-            - containerPort: 3000  # Fixed indentation
+            - containerPort: 5000  # Fixed indentation
           env:
-            - name: DB_HOST
-              value: "mysql-service"
-            - name: DB_USER
-              value: "root"
-            - name: DB_PASSWORD
-              value: "qwerty"
-            - name: DB_NAME
-              value: "my_new_db"
-              
+            - name: REACT_APP_API_URL
+              value: "http://backend-service:3000/"
