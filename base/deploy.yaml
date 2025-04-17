@@ -11,6 +11,9 @@ spec:
     metadata:
       labels:
         app: frontend
+      annotations:
+        argocd-image-updater.argoproj.io/image-list: "frontend=ashreesee/frontend" 
+        argocd-image-updater.argoproj.io/allowed-images: "ashreesee/frontend:.*"
     spec:
       containers:
         - name: frontend  # Fixed indentation
