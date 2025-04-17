@@ -13,5 +13,5 @@ spec:
         app: kargo-demo
     spec:
       containers:
-      - name: nginx 
-        image: ghcr.io/pratik3686/netflix:0.0.3
+      - name: backend
+        image: ghcr.io/ashreesee/backend
