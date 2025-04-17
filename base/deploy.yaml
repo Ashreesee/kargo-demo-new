@@ -1,17 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kargo-demo
+  name: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kargo-demo
+      app: backend
   template:
     metadata:
       labels:
-        app: kargo-demo
+        app: backend
     spec:
       containers:
-      - name: backend
-        image: ghcr.io/ashreesee/backend
+        - name: backend  # Fixed indentation
+          image: ashreesee/backend:v1
+          ports:
+            - containerPort: 3000  # Fixed indentation
+          env:
+            - name: DB_HOST
+              value: "mysql-service"
+            - name: DB_USER
+              value: "root"
+            - name: DB_PASSWORD
+              value: "qwerty"
+            - name: DB_NAME
+              value: "my_new_db"
+              

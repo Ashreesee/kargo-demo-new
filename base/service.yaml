@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kargo-demo
+  name: backend-service
 spec:
-  type: ClusterIP
   selector:
-    app: kargo-demo
+    app: backend
   ports:
-  - protocol: TCP
-    port: 443
-    targetPort: 80
+    - protocol: TCP  # Fixed indentation
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
